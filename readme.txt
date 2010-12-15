@@ -1,6 +1,6 @@
 === Wistia WordPress oEmbed Plugin ===
 Contributors: wistia
-Tags: wistia, oembed, video
+Tags: wistia, oembed, video, embed
 Requires at least: 2.9.0
 Tested up to: 3.0.3
 Stable tag: trunk
