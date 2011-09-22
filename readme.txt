@@ -24,5 +24,9 @@ Chances are that you need to have oEmbed support enabled in your Wistia account.
 
 == Changelog ==
 
+= 0.2 =
+* Update to also allow the use of WordPress shortcodes. Example:
+    [wistia url="http://app.wistia.com/embed/medias/3a3b7090ca?width=960&height=360&autoplay=false&playbutton=true&controls_visible=false&end_video_behavior=default"]
+
 = 0.1 =
 * Initial release
