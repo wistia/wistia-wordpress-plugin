@@ -2,8 +2,8 @@
 Contributors: wistia
 Tags: wistia, oembed, video, embed
 Requires at least: 2.9.0
-Tested up to: 3.0.3
-Stable tag: trunk
+Tested up to: 3.3.1
+Stable tag: 0.2
 
 Enable oEmbed-based embedding for Wistia videos in your WordPress blog.
 
@@ -23,6 +23,9 @@ Wistia's embed codes are designed to work flawlessly with Wordpress by default (
 Chances are that you need to have oEmbed support enabled in your Wistia account.  Please see http://wistia.com/doc/wordpress for everything you need to know about using oEmbed links from Wistia.  If you do have oEmbed support enabled, we normally recommend pasting in an oEmbed code with one blank line above and below the embed code in your post.
 
 == Changelog ==
+
+= 0.2 =
+Added SuperEmbed style oEmbed support.
 
 = 0.1 =
 * Initial release
