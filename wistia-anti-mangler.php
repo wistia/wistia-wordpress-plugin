@@ -229,7 +229,7 @@ class WistiaAntiMangler {
   }
 
   /**
-   * Identify wistia iframes by name="wistia_embed".
+   * Identify wistia iframes by name="wistia_embed" or name="wistia_playlist".
    * 
    * @param  string  $haystack
    *
@@ -237,7 +237,7 @@ class WistiaAntiMangler {
    */
   function all_iframe_ranges( $haystack ) {
     $result = array();
-    $ranges = $this->all_tag_ranges_for_match('/name=\"wistia_embed\"/', $haystack);
+    $ranges = $this->all_tag_ranges_for_match('/name=\"wistia_embed\"|name=\"wistia_playlist\"/', $haystack);
     foreach ($ranges as $range) {
       $html_in_range = $this->substr_for_range($range, $haystack);
       if (preg_match('/^<iframe/', $html_in_range)) {
@@ -286,7 +286,7 @@ class WistiaAntiMangler {
   }
 
   /**
-   * Identify API embed containers by class="wistia_embed" on a div.
+   * Identify API embed containers by class="wistia_embed" or class="wistia_playlist" on a div.
    * 
    * @param  string  $haystack
    *
@@ -294,7 +294,7 @@ class WistiaAntiMangler {
    */
   function all_api_embed_ranges( $haystack ) {
     $result = array();
-    $ranges = $this->all_tag_ranges_for_match('/class=\"wistia_embed/', $haystack);
+    $ranges = $this->all_tag_ranges_for_match('/class=\"wistia_embed|class=\"wistia_playlist/', $haystack);
     foreach ($ranges as $range) {
       $html_in_range = substr($haystack, $range[0], $range[1] - $range[0]);
       if (preg_match('/^<div/', $html_in_range)) {
@@ -468,6 +468,17 @@ class WistiaAntiMangler {
             array_push($required_scripts[0], 'E-' . $match[1]);
           } else {
             array_push($required_scripts[0], 'E-v1');
+          }
+        }
+        if ($func_text = $this->find_whole_function_call('Wistia.playlist', $script_text)) {
+          if (preg_match('/["\']?version["\']?:\s*["\'](v\d+)["\']/', $func_text, $match)) {
+            $version = $match[1];
+            array_push($required_scripts[0], 'E-' . $version);
+            array_push($required_scripts[0], 'playlist-' . $version);
+          }
+          if (preg_match('/["\']?theme["\']?:\s*["\'](\w+)["\']/', $func_text, $match)) {
+            $theme = $match[1];
+            array_push($required_scripts[0], 'playlist-' . $version . '-' . $theme);
           }
         }
         if ($func_text = $this->find_whole_function_call('Wistia.plugin.socialbar', $script_text)) {
