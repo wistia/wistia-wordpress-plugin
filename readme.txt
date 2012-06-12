@@ -1,9 +1,9 @@
-=== Wistia WordPress oEmbed Plugin ===
+=== Wistia WordPress Plugin ===
 Contributors: wistia
 Tags: wistia, oembed, video, embed
 Requires at least: 2.9.1
 Tested up to: 3.3.2
-Stable tag: 0.3
+Stable tag: 0.4
 
 Enables all Wistia embed types to be used in your WordPress blog.
 
@@ -23,6 +23,9 @@ sure that your Wistia embeds will work, no matter what you do.
 4. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+
+= 0.4 =
+* Added support for the new Playlist embed structure
 
 = 0.3 =
 * Added support for all SuperEmbed style Wistia embeds
