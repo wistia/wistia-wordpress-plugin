@@ -10,43 +10,81 @@ License: MIT
 */
 
 wp_oembed_add_provider( 'https?:\/\/(.+)?(wistia\.com|wi\.st)\/.*', 'http://fast.wistia.com/oembed' );
-require('wistia-anti-mangler.php');
+require 'wistia-anti-mangler.php';
 
 global $wistia_anti_mangler;
 $wistia_anti_mangler = new WistiaAntiMangler();
 
-function wistia_extract_embeds($text) {
-  global $wistia_anti_mangler;
-  return $wistia_anti_mangler->extract_embeds($text);
+/**
+ * @param $text
+ *
+ * @return mixed
+ */
+function wistia_extract_embeds( $text ) {
+	global $wistia_anti_mangler;
+
+	return $wistia_anti_mangler->extract_embeds( $text );
 }
 
-function wistia_insert_embeds($text) {
-  global $wistia_anti_mangler;
-  return $wistia_anti_mangler->insert_embeds($text);
+/**
+ * @param $text
+ * @return mixed
+ */
+function wistia_insert_embeds( $text ) {
+	global $wistia_anti_mangler;
+
+	return $wistia_anti_mangler->insert_embeds( $text );
 }
 
-function wistia_insert_embeds_for_editor($text) {
-  global $wistia_anti_mangler;
-  return $wistia_anti_mangler->insert_embeds_for_editor($text);
+/**
+ * @param $text
+ * @return mixed
+ */
+function wistia_insert_embeds_for_editor( $text ) {
+	global $wistia_anti_mangler;
+
+	return $wistia_anti_mangler->insert_embeds_for_editor( $text );
 }
 
-function wistia_add_scripts_if_necessary($text) {
-  global $wistia_anti_mangler;
-  return $wistia_anti_mangler->add_scripts_if_necessary($text);
+/**
+ * @param $text
+ * @return string
+ */
+function wistia_add_scripts_if_necessary( $text ) {
+	global $wistia_anti_mangler;
+
+	return $wistia_anti_mangler->add_scripts_if_necessary( $text );
 }
 
-function add_valid_tiny_mce_elements($in) {
-  $in['extended_valid_elements'] = $in['extended_valid_elements'] . 'div[*],iframe[*],script[*],object[*],embed[*],a[*],noscript[*]';
-  return $in;
+/**
+ * Extends the allowed HTML elements in the TinyMCE editor.
+ *
+ * @link http://bit.ly/11hhyG3
+ *
+ * @param array $init Initial associative array of allowed elements.
+ *
+ * @return array
+ */
+function add_valid_tiny_mce_elements( $init ) {
+	$elements = 'div[*],iframe[*],script[*],object[*],embed[*],a[*],noscript[*]';
+
+	/*
+	Add to extended_valid_elements if it already exists,
+	else ours becomes the only allowed elements. 
+	*/
+	if ( isset( $init['extended_valid_elements'] ) )
+		$init['extended_valid_elements'] .= ',' . $elements;
+	else
+		$init['extended_valid_elements'] = $elements;
+
+	return $init;
 }
 
-add_filter('content_save_pre', 'wistia_extract_embeds', 2);
-add_filter('content_save_pre', 'wistia_insert_embeds', 1001);
-add_filter('the_content', 'wistia_extract_embeds', 2);
-add_filter('the_content', 'wistia_insert_embeds', 1001);
-add_filter('the_content', 'wistia_add_scripts_if_necessary', 1002);
-add_filter('the_editor_content', 'wistia_extract_embeds', 2);
-add_filter('the_editor_content', 'wistia_insert_embeds_for_editor', 1001);
-add_filter('tiny_mce_before_init', 'add_valid_tiny_mce_elements' );
-
-?>
+add_filter( 'content_save_pre', 'wistia_extract_embeds', 2 );
+add_filter( 'content_save_pre', 'wistia_insert_embeds', 1001 );
+add_filter( 'the_content', 'wistia_extract_embeds', 2 );
+add_filter( 'the_content', 'wistia_insert_embeds', 1001 );
+add_filter( 'the_content', 'wistia_add_scripts_if_necessary', 1002 );
+add_filter( 'the_editor_content', 'wistia_extract_embeds', 2 );
+add_filter( 'the_editor_content', 'wistia_insert_embeds_for_editor', 1001 );
+add_filter( 'tiny_mce_before_init', 'add_valid_tiny_mce_elements' );

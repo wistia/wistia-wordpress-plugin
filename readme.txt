@@ -1,5 +1,5 @@
 === Wistia WordPress Plugin ===
-Contributors: wistia
+Contributors: wistia, morganestes
 Tags: wistia, oembed, video, embed
 Requires at least: 2.9.1
 Tested up to: 3.3.2
@@ -23,6 +23,9 @@ sure that your Wistia embeds will work, no matter what you do.
 4. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+= 0.5.1 =
+* Fixed a debug error complaining about `extended_valid_elements` undefined in `add_valid_tiny_mce_elements`
+* Coding style and formatting cleanup
 
 = 0.5 =
 * Updated the oembed endpoint for Wistia
