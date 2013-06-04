@@ -24,6 +24,10 @@ sure that your Wistia embeds will work, no matter what you do.
 
 == Changelog ==
 
+= 0.5.1 =
+* Fixed a debug error complaining about `extended_valid_elements`
+undefined in `add_valid_tiny_mce_elements`
+
 = 0.5 =
 * Updated the oembed endpoint for Wistia
 * Updated the regexes for matching Wistia video URLs to the latest recommended in the doc
