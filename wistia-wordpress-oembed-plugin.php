@@ -35,9 +35,28 @@ function wistia_add_scripts_if_necessary($text) {
   return $wistia_anti_mangler->add_scripts_if_necessary($text);
 }
 
-function add_valid_tiny_mce_elements($in) {
-  $in['extended_valid_elements'] = $in['extended_valid_elements'] . 'div[*],iframe[*],script[*],object[*],embed[*],a[*],noscript[*]';
-  return $in;
+/**
+ * Extends the allowed HTML elements in the TinyMCE editor.
+ *
+ * @link http://bit.ly/11hhyG3
+ *
+ * @param array $init Initial associative array of allowed elements.
+ *
+ * @return array
+ */
+function add_valid_tiny_mce_elements( $init ) {
+	$elements = 'div[*],iframe[*],script[*],object[*],embed[*],a[*],noscript[*]';
+
+	/*
+	Add to extended_valid_elements if it already exists,
+	else ours becomes the only allowed elements.
+	*/
+	if ( isset( $init['extended_valid_elements'] ) )
+		$init['extended_valid_elements'] .= ',' . $elements;
+	else
+		$init['extended_valid_elements'] = $elements;
+
+	return $init;
 }
 
 add_filter('content_save_pre', 'wistia_extract_embeds', 2);
