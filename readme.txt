@@ -2,8 +2,8 @@
 Contributors: wistia
 Tags: wistia, oembed, video, embed
 Requires at least: 2.9.1
-Tested up to: 3.3.2
-Stable tag: 0.5
+Tested up to: 3.5.1
+Stable tag: 0.6
 
 Enables all Wistia embed types to be used in your WordPress blog.
 
@@ -23,6 +23,9 @@ sure that your Wistia embeds will work, no matter what you do.
 4. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+
+= 0.6 =
+* Changed oembed regexp to properly detect new Wistia oembed URLs.
 
 = 0.5.1 =
 * Fixed a debug error complaining about `extended_valid_elements`
