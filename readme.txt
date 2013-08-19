@@ -13,6 +13,12 @@ Wistia's embed codes are designed to be very durable, but WordPress has a
 history of being particularly troublesome. This plugin transparently makes
 sure that your Wistia embeds will work, no matter what you do.
 
+As of version 0.6 of this plugin, it is recommended that you check
+"Use oEmbed?" under Advanced Options when generating your embed code.
+
+See the Wistia documentation for more:
+http://wistia.com/doc/wordpress#using_the_oembed_embed_code
+
 == Installation ==
 
 1. Make a 'wistia-wordpress-oembed-plugin' directory in '/wp-content/plugins/'.
