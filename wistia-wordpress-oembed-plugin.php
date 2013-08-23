@@ -51,7 +51,7 @@ function add_valid_tiny_mce_elements( $init ) {
 	Add to extended_valid_elements if it already exists,
 	else ours becomes the only allowed elements.
 	*/
-	if ( isset( $init['extended_valid_elements'] ) )
+	if ( isset( $init['extended_valid_elements'] ) && is_string( $init['extended_valid_elements'] ) )
 		$init['extended_valid_elements'] .= ',' . $elements;
 	else
 		$init['extended_valid_elements'] = $elements;
