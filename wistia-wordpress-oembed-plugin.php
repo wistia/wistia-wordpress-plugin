@@ -52,7 +52,7 @@ function add_valid_tiny_mce_elements( $init ) {
 	else ours becomes the only allowed elements.
 	*/
 	if ( isset( $init['extended_valid_elements'] ) && is_string( $init['extended_valid_elements'] ) )
-		$init['extended_valid_elements'] .= ',' . $elements;
+		$init['extended_valid_elements'] = $init['extended_valid_elements'] . ',' . $elements;
 	else
 		$init['extended_valid_elements'] = $elements;
 
