@@ -393,14 +393,14 @@ class WistiaAntiMangler {
   }
 
 
-  /**
-   * Find any wistia scripts included in the text and save their names. e.g.
-   * array('E-v1', 'socialbar-v1', 'postRoll-v1', 'popover-v1')
-   * 
-   * @param  string  $haystack
-   *
-   * @return  array
-   */
+	/**
+	 * Find any wistia scripts included in the text and save their names. e.g.
+	 * array('E-v1', 'socialbar-v1', 'postRoll-v1', 'popover-v1')
+	 *
+	 * @param string $text
+	 *
+	 * @return array All the existing scripts in a page.
+	 */
   function find_existing_scripts($text) {
     $existing_scripts = array();
     $script_ranges = $this->all_external_script_ranges($text);
@@ -416,13 +416,13 @@ class WistiaAntiMangler {
   }
 
   /**
-   * Given a function call, find the whole function range from open to close. Note 
-   * that this probably fails if an anonymous function is passed as a parameter, 
+   * Given a function call, find the whole function range from open to close. Note
+   * that this probably fails if an anonymous function is passed as a parameter,
    * but our embeds never accept that form.
-   * 
-   * @param  string  $func_name  The name of the function to match.
-   * @param  text  The text to search in.
-   * @param  offset  Optional, the offset to start searching from.
+   *
+   * @param string $func_name The name of the function to match.
+   * @param string $text The text to search in.
+   * @param int $offset Optional, the offset to start searching from.
    *
    * @return  array
    */
@@ -443,9 +443,9 @@ class WistiaAntiMangler {
    * that this probably fails if an anonymous function is passed as a parameter, 
    * but our embeds never accept that form.
    * 
-   * @param  string  $func_name  The name of the function to match.
-   * @param  text  The text to search in.
-   * @param  offset  Optional, the offset to start searching from.
+   * @param string $func_name The name of the function to match.
+   * @param string $text The text to search in.
+   * @param int $offset Optional, the offset to start searching from.
    *
    * @return  string
    */
