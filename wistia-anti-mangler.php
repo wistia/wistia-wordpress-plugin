@@ -1,8 +1,17 @@
 <?php
 class WistiaAntiMangler {
 
-  var $unfiltered_substrings = array();
+	/** @var array */
+	protected $unfiltered_substrings;
 
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.8.0
+	 */
+	protected function __construct() {
+		$this->unfiltered_substrings = array();
+	}
 
   /**
    * Identify all wistia embeds, save their raw html, and replace them 
