@@ -10,7 +10,7 @@ License: MIT
 */
 
 wp_oembed_add_provider( '/https?\:\/\/(.+)?(wistia\.com|wi\.st)\/.*/', 'https://fast.wistia.com/oembed', true );
-require('wistia-anti-mangler.php');
+require plugin_dir_path( __FILE__ ) . 'wistia-anti-mangler.php';
 
 global $wistia_anti_mangler;
 $wistia_anti_mangler = new WistiaAntiMangler();
