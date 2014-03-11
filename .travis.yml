@@ -5,4 +5,4 @@ php:
   - 5.4
   - 5.5
 
-script: php wistia-wordpress-plugin/tests.php
+script: php tests.php
