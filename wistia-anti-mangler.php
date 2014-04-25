@@ -569,7 +569,13 @@ class WistiaAntiMangler {
    * @return  array
    */
   function concat_script_tag($scripts) {
-    return '<script charset="ISO-8859-1" src="http' . ($_SERVER['https'] == 'on' ? 's' : '') . '://fast.wistia.com/static/concat/' . implode($scripts, '%2C') . '.js"></script>';
+    $is_https = false;
+    if (isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] != 'Off') {
+      $is_https = true;
+    } elseif (isset($_SERVER['https']) and $_SERVER['https'] != 'Off') {
+      $is_https = true;
+    }
+    $secure = ($is_https) ? 's' : '';
+    return '<script charset="ISO-8859-1" src="http' . $secure . '://fast.wistia.com/static/concat/' . implode($scripts, '%2C') . '.js"></script>';
   }
 }
-?>
