@@ -2,33 +2,44 @@
 Contributors: wistia
 Tags: wistia, oembed, video, embed
 Requires at least: 2.9.1
-Tested up to: 3.5.1
-Stable tag: 0.7
+Tested up to: 4.3.1
+Stable tag: 0.8
 
 Enables all Wistia embed types to be used in your WordPress blog.
 
 == Description ==
 
 Wistia's embed codes are designed to be very durable, but WordPress has a
-history of being particularly troublesome. This plugin transparently makes
-sure that your Wistia embeds will work, no matter what you do.
+history of being particularly troublesome. This plugin adds oEmbed support so
+that pasting a link to the video's page in Wistia will embed the video. The
+video's URL must be by itself on its own line for this to work.
 
 As of version 0.6 of this plugin, it is recommended that you check
 "Use oEmbed?" under Advanced Options when generating your embed code.
 
+As of version 0.8 of this plugin, the legacy "Anti-Mangler" feature is an
+option that is turned off by default.
+
 See the Wistia documentation for more:
 http://wistia.com/doc/wordpress#using_the_oembed_embed_code
 
-== Installation ==
+== Automatic Installation ==
+
+1. In Admin Dashboard, go to Plugins > Add New.
+2. Search for "Wistia WordPress Plugin".
+3. Find the plugin and click "Install".
+
+== Manual Installation ==
 
 1. Make a 'wistia-wordpress-oembed-plugin' directory in '/wp-content/plugins/'.
-2. Upload 'wistia-wordpress-oembed-plugin.php' to the
+2. Upload all files in the repository to the
 '/wp-content/plugins/wistia-wordpress-oembed-plugin/' directory.
-3. Upload 'wistia-anti-mangler.php' to the
-'/wp-content/plugins/wistia-wordpress-oembed-plugin/' directory.
-4. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+
+= 0.8 =
+* Make Anti-Mangler an option and turn it off by default for new installs.
 
 = 0.7 =
 * Try to fix an issue with string concatenation in certain environemnts.
