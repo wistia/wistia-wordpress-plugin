@@ -10,22 +10,23 @@ License: MIT
 */
 
 function wistia_wordpress_plugin_file() {
-  return __FILE__;
+	return __FILE__;
 }
 
 // This is the core of the plugin. Just basic oembed support.
 wp_oembed_add_provider(
-  '/https?\:\/\/(.+)?(wistia\.com|wi\.st)\/.*/',
-  'https://fast.wistia.com/oembed',
-  true
+	'/https?\:\/\/(.+)?(wistia\.com|wi\.st)\/.*/',
+	'https://fast.wistia.com/oembed',
+	true
 );
 
-// The anti-mangler is legacy and pretty broken, but if people rely on it, we
-// don't want to just take it away. The Settings page lets the user turn it 
-// off.
-require('wistia-wordpress-options.php');
-require('wistia-anti-mangler.php');
-require('anti-mangler-filters.php');
-require('settings-page.php');
-require('upgrade-actions.php');
-?>
+/**
+ * The anti-mangler is legacy and pretty broken, but if people rely on it, we
+ * don't want to just take it away. The Settings page lets the user turn it
+ * off.
+ */
+require( 'wistia-wordpress-options.php' );
+require( 'wistia-anti-mangler.php' );
+require( 'anti-mangler-filters.php' );
+require( 'settings-page.php' );
+require( 'upgrade-actions.php' );
