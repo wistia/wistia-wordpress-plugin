@@ -2,8 +2,8 @@
 Contributors: wistia
 Tags: wistia, oembed, video, embed
 Requires at least: 2.9.1
-Tested up to: 4.3.1
-Stable tag: 0.8
+Tested up to: 5.1.1
+Stable tag: 0.9
 
 Enables all Wistia embed types to be used in your WordPress blog.
 
@@ -37,6 +37,9 @@ http://wistia.com/doc/wordpress#using_the_oembed_embed_code
 3. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+
+= 0.9 =
+* Bump 'Tested up to' 5.1.1
 
 = 0.8 =
 * Make Anti-Mangler an option and turn it off by default for new installs.
