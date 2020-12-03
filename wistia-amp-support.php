@@ -1,6 +1,6 @@
 <?php
 /**
- * The file has code add support for AMP pages.
+ * The file has code to support for AMP pages.
  *
  * @package wisita
  */
