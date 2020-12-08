@@ -28,4 +28,5 @@ require('wistia-anti-mangler.php');
 require('anti-mangler-filters.php');
 require('settings-page.php');
 require('upgrade-actions.php');
+require( 'wistia-amp-support.php' );
 ?>
