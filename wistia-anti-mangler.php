@@ -576,6 +576,6 @@ class WistiaAntiMangler {
       $is_https = true;
     }
     $secure = ($is_https) ? 's' : '';
-    return '<script charset="ISO-8859-1" src="http' . $secure . '://fast.wistia.com/static/concat/' . implode($scripts, '%2C') . '.js"></script>';
+    return '<script charset="ISO-8859-1" src="http' . $secure . '://fast.wistia.com/static/concat/' . implode('%2C', $scripts) . '.js"></script>';
   }
 }
